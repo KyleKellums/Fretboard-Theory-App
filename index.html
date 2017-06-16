@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+	<title>Fretboard Theory</title>
+	<link rel="stylesheet" href="./lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body ng-app="FretTheory">
+
+	<div ng-include="'partials/navbar.html'"></div>
+
+	<div id="canvas-container">
+			<canvas id="fretCanvas" width="1110" height="155" style="border:1px solid #d3d3d3;">
+			Your browser does not support the HTML5 canvas tag.
+			</canvas>
+	</div>
+
+	<div ng-view></div>
+
+<script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./lib/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+<!-- <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
+ -->
+<script type="text/javascript" src="./app/app.js"></script>
+<script type="text/javascript" src="./app/fretboard.js"></script>
+<script type="text/javascript" src="./app/factories/DataFactory.js"></script>
+<script type="text/javascript" src="./app/controllers/HomeCtrl.js"></script>
+<script type="text/javascript" src="./app/controllers/NavCtrl.js"></script>
+</body>
+</html>
