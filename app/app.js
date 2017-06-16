@@ -1,6 +1,6 @@
 "use strict";
 
-let app = angular.module('FretTheory', ['ngRoute']);
+let app = angular.module('FretTheory', ['ngRoute', 'ui.bootstrap']);
 
 app.config( ($routeProvider) => {
 	$routeProvider.
