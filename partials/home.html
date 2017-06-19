@@ -1,18 +1,32 @@
+<!-- this is for the 'Select Key and Type' button -->
 <button type="button" class="btn btn-default" ng-click="open('lg')" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
 Select Key and Type
 </button>
 
 <script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-body" id="modal-body" ng-repeat="item in chords">
+    <div class="modal-body" id="modal-body" ng-repeat="item in chordList.Chords">
         <ul>
-            <li ng-repeat="item in chords">
-                <a href="#" ng-click="$event.preventDefault(); $chords.selected.item = item"></a>
+            <li ng-repeat="key in chordList.Chords">
+                <a href="#" ng-click="$event.preventDefault(); $chordList.selected.item = item">{{item}}</a>
             </li>
         </ul>
     </div>
 </script>
 
+
 <div ng-repeat="item in chords">
-    <div>Chord: <b>{{ item.name }}</b></div>
-    <div class="spelling">{{ item.spelling }}</div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-xs-1"><input type="checkbox" name="" ng-model="item.isCompleted" ng-change="updateComplete(item.id)"/></div>
+        <div class="col-xs-7"><a ng-href="#!/tasks/{{item.id}}">{{ item.task }}</a></div>
+        <div class="col-xs-2">{{item.dueDate}}</div>
+        <div class="col-xs-1">{{item.assignedTo}}</div>
+        <div class="col-xs-1"><button ng-click="removeTask(item.id)" class="btn btn-danger">X</button></div>
+      </div>
+    </div>
+</div>
+
+<div ng-repeat="item in chordList">
+    <div class="chord">Chord: <b>{{ item.name }}</b></div>
+    <div class="spelling">Spelling: <b>{{ item.spelling }}</b></div>
 </div>

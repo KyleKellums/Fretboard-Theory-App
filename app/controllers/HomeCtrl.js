@@ -5,9 +5,9 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, DataFact
 
 	let getChords = function() {
 		DataFactory.getChords()
-		.then( (chordList) => {
-			$scope.chords = chordList;
-			console.log("$scope.chords", $scope.chords);
+		.then( (chords) => {
+			$scope.chordList = chords;
+			console.log("$scope.chordList", $scope.chordList);
 		});
 	};
 
@@ -23,8 +23,8 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, DataFact
       size: size,
       appendTo: parentElem,
       resolve: {
-        chords: function () {
-          return $scope.chords;
+        chordList: function () {
+          return $scope.chordList;
         }
       }
     });
