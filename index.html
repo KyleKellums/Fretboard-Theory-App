@@ -12,7 +12,7 @@
 	<div ng-include="'partials/navbar.html'"></div>
 
 	<div id="canvas-container">
-			<canvas id="fretCanvas" width="1110" height="155" style="border:1px solid #d3d3d3;">
+			<canvas id="fretCanvas" width="1150" height="270" style="border:1px solid #d3d3d3;">
 			Your browser does not support the HTML5 canvas tag.
 			</canvas>
 	</div>
@@ -27,12 +27,13 @@
 <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
 
 <script type="text/javascript" src="./app/app.js"></script>
+<script type="text/javascript" src="./app/values/FBcreds.js"></script>
 <script type="text/javascript" src="./app/fretboard.js"></script>
 <!--first factories-->
-<!-- <script type="text/javascript" src="./app/factories/authFactory.js"></script> -->
+<script type="text/javascript" src="./app/factories/AuthFactory.js"></script>
 <script type="text/javascript" src="./app/factories/DataFactory.js"></script>
 <!--then controllers-->
-<!-- <script type="text/javascript" src="./app/controllers/AuthCtrl.js"></script> -->
+<script type="text/javascript" src="./app/controllers/AuthCtrl.js"></script>
 <script type="text/javascript" src="./app/controllers/HomeCtrl.js"></script>
 <script type="text/javascript" src="./app/controllers/NavCtrl.js"></script>
 </body>

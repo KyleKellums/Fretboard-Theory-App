@@ -1,32 +1,55 @@
 <!-- this is for the 'Select Key and Type' button -->
-<button type="button" class="btn btn-default" ng-click="open('lg')" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-Select Key and Type
-</button>
 
 <script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-body" id="modal-body" ng-repeat="item in chordList.Chords">
-        <ul>
-            <li ng-repeat="key in chordList.Chords">
-                <a href="#" ng-click="$event.preventDefault(); $chordList.selected.item = item">{{item}}</a>
-            </li>
-        </ul>
+    <div class="modal-flexy">
+        <div class="modal-body" id="modal-body" ng-repeat="item in chordList.Chords">
+            <div class="btn-group">
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="" ng-click="showNotes(item[0]); closeModal()">{{item[0].name}}</label>
+            </div>
+        </div>
     </div>
 </script>
 
-
-<div ng-repeat="item in chords">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="col-xs-1"><input type="checkbox" name="" ng-model="item.isCompleted" ng-change="updateComplete(item.id)"/></div>
-        <div class="col-xs-7"><a ng-href="#!/tasks/{{item.id}}">{{ item.task }}</a></div>
-        <div class="col-xs-2">{{item.dueDate}}</div>
-        <div class="col-xs-1">{{item.assignedTo}}</div>
-        <div class="col-xs-1"><button ng-click="removeTask(item.id)" class="btn btn-danger">X</button></div>
-      </div>
-    </div>
+<div id="selectBtn">
+    <button type="button" class="btn btn-default text-left" ng-click="open('lg')" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+    Select Key and Type
+    </button>
 </div>
 
-<div ng-repeat="item in chordList">
+<div id="stringSelect" class="container text-right">
+  <h4>Select Strings</h4>
+  <p>Check which strings :</p>
+  <form>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">String 1
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">String 2
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">String 3
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">String 4
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">String 5
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="">String 6
+    </label>
+  </form>
+</div>
+
+
+<!-- I need whichever chord was selected to list the name and spelling -->
+<!-- <div ng-repeat="item in chordList">
     <div class="chord">Chord: <b>{{ item.name }}</b></div>
     <div class="spelling">Spelling: <b>{{ item.spelling }}</b></div>
-</div>
+</div> -->
+
+<!-- <ul>
+    <li>
+        <a href="#" ng-change="$chordList.selected.item" = item">{{item[0].name}}</a>
+    </li>
+</ul> -->
