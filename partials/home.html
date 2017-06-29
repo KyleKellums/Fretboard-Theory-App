@@ -14,11 +14,17 @@
     <button type="button" class="btn btn-default text-left" ng-click="open('lg')" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
     Select Key and Type
     </button>
+
+    <ul class="">
+      <li class="">Chord name:{{ item.name }}</li>
+      <li class="">Chord name:{{ item.spelling }}</li>
+    </ul>
+
 </div>
 
 <div id="stringSelect" class="container text-right">
   <h4>Select Strings</h4>
-  <p>Check which strings :</p>
+  <p>Choose which strings will display notes:</p>
   <form>
     <label class="checkbox-inline">
       <input type="checkbox" value="">String 1
@@ -41,15 +47,3 @@
   </form>
 </div>
 
-
-<!-- I need whichever chord was selected to list the name and spelling -->
-<!-- <div ng-repeat="item in chordList">
-    <div class="chord">Chord: <b>{{ item.name }}</b></div>
-    <div class="spelling">Spelling: <b>{{ item.spelling }}</b></div>
-</div> -->
-
-<!-- <ul>
-    <li>
-        <a href="#" ng-change="$chordList.selected.item" = item">{{item[0].name}}</a>
-    </li>
-</ul> -->
