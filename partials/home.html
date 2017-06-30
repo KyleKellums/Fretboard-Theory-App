@@ -1,25 +1,26 @@
-<!-- this is for the 'Select Key and Type' button -->
-
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-flexy">
         <div class="modal-body" id="modal-body" ng-repeat="item in chordList.Chords">
             <div class="btn-group">
-                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="" ng-click="showNotes(item[0]); closeModal()">{{item[0].name}}</label>
+                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="" ng-click="selected.item = item[0]">{{item[0].name}}</label>
             </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </div>
 </script>
+
+    <ul>
+      <li>Chord name:{{selectedChord.name}}</li>
+      <li>Chord spelling:{{selectedChord.spelling}}</li>
+    </ul>
 
 <div id="selectBtn">
     <button type="button" class="btn btn-default text-left" ng-click="open('lg')" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
     Select Key and Type
     </button>
-
-    <ul class="">
-      <li class="">Chord name:{{ item.name }}</li>
-      <li class="">Chord name:{{ item.spelling }}</li>
-    </ul>
-
 </div>
 
 <div id="stringSelect" class="container text-right">
