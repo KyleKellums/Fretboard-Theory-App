@@ -1,10 +1,12 @@
 "use strict";
 // console.log("hello fretboard.js");
 
+app.factory('FretboardFactory', function() {
 
-let fretboard = function() {
+let fretboard = () => {
 var canvas = document.getElementById("fretCanvas");
 var ctx = canvas.getContext("2d");
+ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 /////  Create the rectangle  ///////
 ctx.rect(0, 0, 1200, 220);
@@ -174,7 +176,11 @@ ctx.arc(1045,135,2,0,2*Math.PI);
 ctx.stroke();
 };
 
-fretboard();
+return {fretboard};
+
+});
+
+
 
 
 

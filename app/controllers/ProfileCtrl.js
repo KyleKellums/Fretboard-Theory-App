@@ -8,5 +8,6 @@ app.controller('ProfileCtrl', function($scope, DataFactory, AuthFactory, $locati
 
 	$scope.userChords = {
 		uid: user,
+		//FB board ID here
 	};
 });

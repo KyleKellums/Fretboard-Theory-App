@@ -1,7 +1,9 @@
 "use strict";
 // console.log("HomeCtrl loaded");
 
-app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, AuthFactory, DataFactory) {
+app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, FretboardFactory, AuthFactory, DataFactory) {
+
+  FretboardFactory.fretboard();
 
 	let getChords = function() {
 		DataFactory.getChords()
@@ -12,20 +14,18 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, AuthFact
 	};
 
   function display(note, x, y) {
+
     var c = document.getElementById("fretCanvas");
     var ctx = c.getContext("2d");
 
-    // ctx.clearRect(0, 0, c.width, c.height);
-    // fretboard();
 
     ctx.font = "32px extra-bold Georgia";
     ctx.fillText(note, x, y);
   }
 
-  $scope.chord = {name:""};
-
   $scope.showNotes = function(value) {
     console.log("value", value);
+    FretboardFactory.fretboard();
     $scope.selectedChord = value;
     $scope.selectedChord.string1.forEach( (note) => {
       display(note.note, note.x, note.y);
@@ -45,15 +45,12 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, AuthFact
     $scope.selectedChord.string6.forEach( (note) => {
       display(note.note, note.x, note.y);
     });
-    // $scope.$apply();
-    // console.log("selectedChord", $scope.selectedChord.name);
   };
 
    $scope.open = function (size, parentSelector) {
     var parentElem = parentSelector ?
       angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
     var modalInstance = $uibModal.open({
-      // animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
       templateUrl: 'myModalContent.html',
@@ -73,7 +70,6 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, AuthFact
         $scope.showNotes($scope.selectedChord);
       }, function (selectedItem) {
         $log.info('Modal dismissed at: ' + new Date());
-        // console.log("sel item", selectedItem);
       });
     };
 

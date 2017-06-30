@@ -19,6 +19,32 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
-	return {getChords};
+	const addChord = () => {
+		return $q( (resolve, reject) => {
+			$http.post(`${FBCreds.databaseURL}/Chords`)
+			.then( (ChordID)  => {
+				resolve(ChordID);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
+	const deleteChord = () => {
+		return $q( (resolve, reject) => {
+			$http.delete(`${FBCreds.databaseURL}/Chords/${ChordID}.json`)
+			.then( (response) => {
+				resolve(response);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
+
+
+	return {getChords, addChord, deleteChord};
 
 });
