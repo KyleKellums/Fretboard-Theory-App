@@ -17,23 +17,26 @@ let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
 
 app.config( ($routeProvider) => {
 	$routeProvider.
-	when('/', {
-		templateUrl: 'partials/home.html',
-		controller: 'HomeCtrl'
-	})
-	.when('/login', {
+	when('/login', {
 		templateUrl: 'partials/auth.html',
 		controller: 'AuthCtrl'
+	})
+	.when('/', {
+		templateUrl: 'partials/home.html',
+		controller: 'HomeCtrl',
+		resolve: {isAuth}
 	})
 	.when('/logout', {
 		templateUrl: 'partials/auth.html',
-		controller: 'AuthCtrl'
+		controller: 'AuthCtrl',
+		resolve: {isAuth}
 	})
 	.when('/profile', {
 		templateUrl: 'partials/profile.html',
-		controller: 'ProfileCtrl'
+		controller: 'ProfileCtrl',
+		resolve: {isAuth}
 	})
-	.otherwise('/');
+	.otherwise('/login');
 });
 
 app.run(($location, FBCreds) => {

@@ -1,7 +1,7 @@
 "use strict";
 // console.log("HomeCtrl loaded");
 
-app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, FretboardFactory, AuthFactory, DataFactory) {
+app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, $routeParams, $location, FretboardFactory, AuthFactory, DataFactory) {
 
   FretboardFactory.fretboard();
 
@@ -13,6 +13,7 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, Fretboar
 		});
 	};
 
+/////// DISPLAY SELECTED CHORD ON CANVAS /////////
   function display(note, x, y) {
 
     var c = document.getElementById("fretCanvas");
@@ -23,6 +24,7 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, Fretboar
     ctx.fillText(note, x, y);
   }
 
+/////// GETS SELECTED CHORD, FINDS X,Y, and CALLS DISPLAY() //////
   $scope.showNotes = function(value) {
     console.log("value", value);
     FretboardFactory.fretboard();
@@ -47,6 +49,20 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, Fretboar
     });
   };
 
+////////// SAVE CHORD TO USER PROFILE ///////////
+  let user = AuthFactory.getUser();
+
+  $scope.addChord = function(){
+    console.log("addChord was called");
+    $scope.selectedChord.uid = user;
+
+    DataFactory.addChord($scope.selectedChord)
+    .then( (data) => {
+    });
+  }
+
+
+/////////  FUNCTIONS FOR UI BOOTSTRAP MODAL //////////
    $scope.open = function (size, parentSelector) {
     var parentElem = parentSelector ?
       angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
@@ -73,11 +89,11 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, Fretboar
       });
     };
 
-
 getChords();
 
 });
 
+////////// CONTROLLER FOR UI-BOOTSTRAP MODAL ///////////
 app.controller('ModalInstanceCtrl', function ($uibModalInstance, $scope, chordList) {
   $scope.chordList = chordList;
   $scope.selected = {
