@@ -1,6 +1,6 @@
 <div>
 	<h3>My Saved Chords</h3>
-	<div ng-repeat="item in Chords"></div>
+	<div ng-repeat="item in userList">{{item.name}}</div>
 
 	<div class="container">
   		<button type="button" class="btn" ng-click="deleteChord()">Delete Chord</button>

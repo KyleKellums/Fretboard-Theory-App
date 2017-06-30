@@ -1,5 +1,5 @@
 "use strict";
-console.log("ProfileCtrl here");
+// console.log("ProfileCtrl here");
 
 app.controller('ProfileCtrl', function($scope, DataFactory, AuthFactory, $location, $routeParams){
 
@@ -8,6 +8,17 @@ app.controller('ProfileCtrl', function($scope, DataFactory, AuthFactory, $locati
 
 	$scope.userChords = {
 		uid: user,
-		//FB board ID here
+		ChordID: ""
 	};
+
+	let getUserChords = function () {
+		DataFactory.getUserChords()
+		.then( (userChords) => {
+		  $scope.userList = userChords;
+		  console.log("userChords", userChords);
+		});
+	};
+
+	getUserChords();
+
 });

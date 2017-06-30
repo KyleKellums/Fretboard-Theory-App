@@ -19,9 +19,24 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
-	const addChord = () => {
+	const getUserChords = () => {
 		return $q( (resolve, reject) => {
-			$http.post(`${FBCreds.databaseURL}/Chords`)
+			$http.get(`${FBCreds.databaseURL}/userChords.json`)
+			.then( (userChordsObj) => {
+				let userChordList = userChordsObj.data;
+				console.log("userChordList", userChordList);
+				resolve(userChordList);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
+	const addChord = (savedChord) => {
+			let obj = JSON.stringify(savedChord);
+		return $q( (resolve, reject) => {
+			$http.post(`${FBCreds.databaseURL}/userChords.json`, obj)
 			.then( (ChordID)  => {
 				resolve(ChordID);
 			})
@@ -33,7 +48,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 
 	const deleteChord = () => {
 		return $q( (resolve, reject) => {
-			$http.delete(`${FBCreds.databaseURL}/Chords/${ChordID}.json`)
+			$http.delete(`${FBCreds.databaseURL}/userChords/${ChordID}.json`)
 			.then( (response) => {
 				resolve(response);
 			})
@@ -44,7 +59,6 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 	};
 
 
-
-	return {getChords, addChord, deleteChord};
+	return {getChords, addChord, deleteChord, getUserChords};
 
 });
