@@ -4,7 +4,7 @@
         <div class="modal-flexy">
             <div class="modal-body" id="modal-body" ng-repeat="item in chordList.Chords">
                 <div class="btn-group">
-                    <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="" ng-click="selected.item = item[0]">{{item[0].name}}</label>
+                    <label class="btn btn-primary" id="chordBtns" ng-model="radioModel" uib-btn-radio="" ng-click="selected.item = item[0]">{{item[0].name}}</label>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
 
 
     <!-- SAVE BUTTON (for logged in user to save to their profile) -->
-    <div class="container">
+    <div class="container" id="saveBtn">
       <button type="button" class="btn" ng-click="addChord()">Save Chord</button>
     </div>
 
@@ -46,22 +46,27 @@
       <p>Choose which strings will display notes:</p>
       <form id="strSel">
         <label class="checkbox-inline">
-          <input type="checkbox" ng-model="str1">String 1
+          <input type="checkbox" ng-model="select.str1">String 1
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" ng-model="str2">String 2
+          <input type="checkbox" ng-model="select.str2">String 2
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" ng-model="str3">String 3
+          <input type="checkbox" ng-model="select.str3">String 3
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" ng-model="str4">String 4
+          <input type="checkbox" ng-model="select.str4">String 4
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" ng-model="str5">String 5
+          <input type="checkbox" ng-model="select.str5">String 5
         </label>
         <label class="checkbox-inline">
-          <input type="checkbox" ng-model="str6">String 6
+          <input type="checkbox" ng-model="select.str6">String 6
+        </label>
+      </form>
+      <form>
+        <label class="checkbox" id="selectAll">
+          <input type="checkbox" ng-model="allStrings" ng-change="selectAll()">Select All
         </label>
       </form>
     </div>

@@ -24,7 +24,6 @@ app.config( ($routeProvider) => {
 	.when('/', {
 		templateUrl: 'partials/home.html',
 		controller: 'HomeCtrl',
-		resolve: {isAuth}
 	})
 	.when('/logout', {
 		templateUrl: 'partials/auth.html',

@@ -21,10 +21,11 @@ app.controller('ProfileCtrl', function($scope, DataFactory, AuthFactory, Fretboa
 		});
 	};
 
-	let delChord = function () {
-		DataFactory.deleteChord()
+	$scope.delChord = function (ChordID) {
+			console.log("clickd?");
+		DataFactory.deleteChord(ChordID)
 		.then( (userChords) => {
-			$scope.getUserChords();
+			getUserChords();
 		});
 	};
 

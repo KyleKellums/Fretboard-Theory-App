@@ -29,36 +29,51 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, $routePa
     console.log("value", value);
     FretboardFactory.fretboard();
     $scope.selectedChord = value;
-    if ($scope.str1) {
+    if ($scope.select.str1) {
       $scope.selectedChord.string1.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.str2) {
+    if ($scope.select.str2) {
       $scope.selectedChord.string2.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.str3) {
+    if ($scope.select.str3) {
       $scope.selectedChord.string3.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.str4) {
+    if ($scope.select.str4) {
       $scope.selectedChord.string4.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.str5) {
+    if ($scope.select.str5) {
       $scope.selectedChord.string5.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.str6) {
+    if ($scope.select.str6) {
       $scope.selectedChord.string6.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
+  };
+
+  $scope.select = {
+    str1: {selected:false},
+    str2: {selected:false},
+    str3: {selected:false},
+    str4: {selected:false},
+    str5: {selected:false},
+    str6: {selected:false}
+  };
+
+  $scope.selectAll = function (){
+    Object.keys($scope.select).forEach( (val) => {
+      $scope.select[val].selected = true;
+    });
   };
 
 ////////// SAVE CHORD TO USER PROFILE ///////////
@@ -121,3 +136,17 @@ app.controller('ModalInstanceCtrl', function ($uibModalInstance, $scope, chordLi
     $uibModalInstance.dismiss('cancel');
   };
 });
+
+
+////////////// SAVE BUTTON /////////////////
+// if ($scope.user != $scope.isLoggedIn) {
+//   $('#saveBtn').hide();
+// }
+
+
+
+
+
+
+
+

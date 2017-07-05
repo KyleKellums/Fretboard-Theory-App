@@ -4,6 +4,12 @@ $secondary: #F2F2F2;
 $tertiary: #D3D3D3;
 $quaternary: #0B0A07;
 
+/****** NAVBAR ********/
+
+#logInOut li {
+	cursor: pointer;
+}
+
 /****** FRETBOARD STYLING ********/
 #canvas-container {
 	width: 100%;
@@ -27,22 +33,12 @@ $quaternary: #0B0A07;
 	border-color: white;
 }
 
-.btn:active {
-	outline: none !important;
-	box-shadow: none !important;
+#chordBtns:hover {
+	// width: 2em;
+	// height: 2em;
 }
 
-// .btn:active,
-// .btn:focus,
-// .btn.active {
-//   background-image: none;
-//   outline: 0;
-//   -webkit-box-shadow: none;
-//           box-shadow: none;
-// }
-
-#selectBtn:active,
-#selectBtn:focus {
+#selectBtn button:hover {
 	color: $primary;
 	background-color: $secondary;
 	background-image: none;
@@ -81,9 +77,10 @@ $quaternary: #0B0A07;
 	text-align: center;
 }
 
-#strSel {
-	// color: $primary;
-	// clear: none;
+#selectAll {
+	color: #4F4F4F;
+	padding-right: 35%;
+	cursor: pointer;
 }
 
 
@@ -112,14 +109,6 @@ ul li {
 	color: $primary;
 	background-color: none;
 }
-
-// #nameSpell {
-// 	border-style: none;
-// 	padding: 10px;
-// 	color: $primary;
-// 	background-color: none;
-// 	margin-top: 8px;
-// }
 
 
 
