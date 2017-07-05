@@ -1,7 +1,9 @@
 "use strict";
 // console.log("ProfileCtrl here");
 
-app.controller('ProfileCtrl', function($scope, DataFactory, AuthFactory, $location, $routeParams){
+app.controller('ProfileCtrl', function($scope, DataFactory, AuthFactory, FretboardFactory, $location, $routeParams){
+
+	FretboardFactory.fretboard();
 
 	let user = AuthFactory.getUser();
 	console.log("user from profile ctrl", user);
@@ -19,6 +21,17 @@ app.controller('ProfileCtrl', function($scope, DataFactory, AuthFactory, $locati
 		});
 	};
 
+	let delChord = function () {
+		DataFactory.deleteChord()
+		.then( (userChords) => {
+			$scope.getUserChords();
+		});
+	};
+
 	getUserChords();
 
 });
+
+
+
+

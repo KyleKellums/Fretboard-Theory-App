@@ -1,57 +1,68 @@
-<script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-flexy">
-        <div class="modal-body" id="modal-body" ng-repeat="item in chordList.Chords">
-            <div class="btn-group">
-                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="" ng-click="selected.item = item[0]">{{item[0].name}}</label>
+<div id="homeContainer" class="container">
+  <div id="btn-wrap" class="wrapper">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-flexy">
+            <div class="modal-body" id="modal-body" ng-repeat="item in chordList.Chords">
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="" ng-click="selected.item = item[0]">{{item[0].name}}</label>
+                </div>
             </div>
         </div>
+
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <button class="btn-large btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn-large btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
+    </script>
+
+
+    <!-- SELECT KEY AND TYPE BUTTON (opens modal) -->
+    <div id="selectBtn">
+        <button type="button" class="btn btn-default text-left" ng-click="open('lg')" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+        Select Key and Type
+        </button>
     </div>
-</script>
 
-    <ul>
-      <li>Chord name:{{selectedChord.name}}</li>
-      <li>Chord spelling:{{selectedChord.spelling}}</li>
-    </ul>
 
-<!-- SELECT KEY AND TYPE BUTTON (opens modal) -->
-<div id="selectBtn">
-    <button type="button" class="btn btn-default text-left" ng-click="open('lg')" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-    Select Key and Type
-    </button>
+    <!-- SAVE BUTTON (for logged in user to save to their profile) -->
+    <div class="container">
+      <button type="button" class="btn" ng-click="addChord()">Save Chord</button>
+    </div>
+
+
+    <!-- DISPLAY CHORD NAME AND SPELLING -->
+    <div id="nameSpell">
+        <ul id="nameAndSpelling">
+            <li>Chord name: {{selectedChord.name}}</li>
+            <li>Chord spelling: {{selectedChord.spelling}}</li>
+        </ul>
+    </div>
+  </div>
+
+    <!--_____________________ STRING SELECTOR ____________________-->
+    <!-- USE A FILTER - FOR THE SCOPE VARIABLE FOR THE STRINGS -->
+    <div id="stringSelect" class="container text-right">
+      <h4>Select Strings</h4>
+      <p>Choose which strings will display notes:</p>
+      <form id="strSel">
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="str1">String 1
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="str2">String 2
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="str3">String 3
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="str4">String 4
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="str5">String 5
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" ng-model="str6">String 6
+        </label>
+      </form>
+    </div>
 </div>
-
-<!-- SAVE BUTTON (for logged in user to save to their profile) -->
-<div class="container">
-  <button type="button" class="btn" ng-click="addChord()">Save Chord</button>
-</div>
-
-<!-- STRING SELECTOR -->
-<div id="stringSelect" class="container text-right">
-  <h4>Select Strings</h4>
-  <p>Choose which strings will display notes:</p>
-  <form>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">String 1
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">String 2
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">String 3
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">String 4
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">String 5
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">String 6
-    </label>
-  </form>
-</div>
-

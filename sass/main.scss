@@ -1,9 +1,10 @@
 /*colors*/
-$primary: #6B6B6B;
+$primary: #171717;
 $secondary: #F2F2F2;
 $tertiary: #D3D3D3;
 $quaternary: #0B0A07;
 
+/****** FRETBOARD STYLING ********/
 #canvas-container {
 	width: 100%;
 	text-align: center;
@@ -14,16 +15,44 @@ $quaternary: #0B0A07;
 	// padding: 2%;
 }
 
+/******** STYLIN' THE BUTTONS *******/
+#btn-wrap {
+	width: 40%;
+	float: left;
+}
+
 .btn {
 	color: $primary;
 	background-color: $secondary;
 	border-color: white;
 }
 
+.btn:active {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+// .btn:active,
+// .btn:focus,
+// .btn.active {
+//   background-image: none;
+//   outline: 0;
+//   -webkit-box-shadow: none;
+//           box-shadow: none;
+// }
+
+#selectBtn:active,
+#selectBtn:focus {
+	color: $primary;
+	background-color: $secondary;
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: none;
+			box-shadow: none;
+}
+
 #selectBtn {
-	// margin-top: 35px;
-	// margin-left: 30px;
-	// padding: 3%;
+	margin: 10px;
 }
 
 .btn:hover {
@@ -37,11 +66,28 @@ $quaternary: #0B0A07;
 	border-color: $quaternary;
 }
 
+/******* STRING SELECTORS ********/
 #stringSelect {
-	// float: left;
+	color: $primary;
+	// clear: none;
 }
 
-/* this is for the modal; organizing the buttons */
+#stringSelect h4 {
+	color: #4F4F4F;
+	text-align: center;
+}
+
+#stringSelect p {
+	text-align: center;
+}
+
+#strSel {
+	// color: $primary;
+	// clear: none;
+}
+
+
+/***** THIS IS FOR THE MODAL - ORGANIZING CHORD BUTTONS *****/
 .modal-flexy {
 	// display: flex;
 	// flex-wrap: wrap;
@@ -50,3 +96,41 @@ $quaternary: #0B0A07;
 	// justify-content: space-around;
 	// justify-content: flex-start;
 }
+
+ul li {
+	list-style-type: none;
+}
+
+#nameAndSpelling {
+	margin-top: 10px;
+	margin-left: none;
+}
+
+#nameAndSpelling li {
+	border-style: none;
+	padding: 10px;
+	color: $primary;
+	background-color: none;
+}
+
+// #nameSpell {
+// 	border-style: none;
+// 	padding: 10px;
+// 	color: $primary;
+// 	background-color: none;
+// 	margin-top: 8px;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

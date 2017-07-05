@@ -4,14 +4,16 @@
 app.factory("DataFactory", ($q, $http, FBCreds) => {
 
 	const getChords = () => {
+		// let Chords = [];
 		return $q( (resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/.json`)
-			//for playing with the json file in sublime
-			// $http.get("./data/proto.json")
 			.then( (chordsObj) => {
 				let chordList = chordsObj.data;
-				console.log("chordList", chordList);
 				resolve(chordList);
+			// Object.keys(chordList).forEach( (key) => {
+			// 	chordList[key].ChordID = key;
+			// 	Chords.push(chordList[key]);
+			// });
 			})
 			.catch( (error) => {
 				reject(error);
@@ -48,7 +50,7 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 
 	const deleteChord = () => {
 		return $q( (resolve, reject) => {
-			$http.delete(`${FBCreds.databaseURL}/userChords/${ChordID}.json`)
+			$http.delete(`${FBCreds.databaseURL}/userChords/.json`)
 			.then( (response) => {
 				resolve(response);
 			})
