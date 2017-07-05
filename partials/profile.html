@@ -1,8 +1,21 @@
-<div>
-	<h3>My Saved Chords</h3>
-	<div ng-repeat="item in userList">{{item.name}}</div>
 
+
+<div class="container">
+  <h3>My Saved Chords</h3>
+  <div class="btn-group" ng-repeat="item in userList">
+    <button type="button" class="btn btn-primary" ng-model="radioModel" ng-click="">{{item.name}}</button>
+  </div>
+</div>
+
+
+<div>
 	<div class="container">
-  		<button type="button" class="btn" ng-click="deleteChord()">Delete Chord</button>
+  		<button type="button" class="btn" ng-click="delChord()">Delete Chord</button>
 	</div>
 </div>
+
+
+<!-- <div class="footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+	<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div> -->

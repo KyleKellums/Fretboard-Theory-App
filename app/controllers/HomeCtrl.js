@@ -29,24 +29,36 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, $routePa
     console.log("value", value);
     FretboardFactory.fretboard();
     $scope.selectedChord = value;
-    $scope.selectedChord.string1.forEach( (note) => {
-      display(note.note, note.x, note.y);
-    });
-    $scope.selectedChord.string2.forEach( (note) => {
-      display(note.note, note.x, note.y);
-    });
-    $scope.selectedChord.string3.forEach( (note) => {
-      display(note.note, note.x, note.y);
-    });
-    $scope.selectedChord.string4.forEach( (note) => {
-      display(note.note, note.x, note.y);
-    });
-    $scope.selectedChord.string5.forEach( (note) => {
-      display(note.note, note.x, note.y);
-    });
-    $scope.selectedChord.string6.forEach( (note) => {
-      display(note.note, note.x, note.y);
-    });
+    if ($scope.str1) {
+      $scope.selectedChord.string1.forEach( (note) => {
+        display(note.note, note.x, note.y);
+      });
+    }
+    if ($scope.str2) {
+      $scope.selectedChord.string2.forEach( (note) => {
+        display(note.note, note.x, note.y);
+      });
+    }
+    if ($scope.str3) {
+      $scope.selectedChord.string3.forEach( (note) => {
+        display(note.note, note.x, note.y);
+      });
+    }
+    if ($scope.str4) {
+      $scope.selectedChord.string4.forEach( (note) => {
+        display(note.note, note.x, note.y);
+      });
+    }
+    if ($scope.str5) {
+      $scope.selectedChord.string5.forEach( (note) => {
+        display(note.note, note.x, note.y);
+      });
+    }
+    if ($scope.str6) {
+      $scope.selectedChord.string6.forEach( (note) => {
+        display(note.note, note.x, note.y);
+      });
+    }
   };
 
 ////////// SAVE CHORD TO USER PROFILE ///////////
@@ -55,11 +67,12 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, $routePa
   $scope.addChord = function(){
     console.log("addChord was called");
     $scope.selectedChord.uid = user;
+    $scope.selectedChord.ChordID = user;
 
     DataFactory.addChord($scope.selectedChord)
     .then( (data) => {
     });
-  }
+  };
 
 
 /////////  FUNCTIONS FOR UI BOOTSTRAP MODAL //////////
