@@ -3,17 +3,14 @@
 
 app.factory("DataFactory", ($q, $http, FBCreds) => {
 
+
+
 	const getChords = () => {
-		// let Chords = [];
 		return $q( (resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/.json`)
 			.then( (chordsObj) => {
 				let chordList = chordsObj.data;
 				resolve(chordList);
-			// Object.keys(chordList).forEach( (key) => {
-			// 	chordList[key].ChordID = key;
-			// 	Chords.push(chordList[key]);
-			// });
 			})
 			.catch( (error) => {
 				reject(error);
@@ -22,12 +19,16 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 	};
 
 	const getUserChords = () => {
+		let Chords = [];
 		return $q( (resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/userChords.json`)
 			.then( (userChordsObj) => {
 				let userChordList = userChordsObj.data;
-				console.log("userChordList", userChordList);
-				resolve(userChordList);
+				Object.keys(userChordList).forEach( (key) => {
+				userChordList[key].ChordID = key;
+				Chords.push(userChordList[key]);
+			});
+				resolve(Chords);
 			})
 			.catch( (error) => {
 				reject(error);
@@ -48,9 +49,9 @@ app.factory("DataFactory", ($q, $http, FBCreds) => {
 		});
 	};
 
-	const deleteChord = () => {
+	const deleteChord = (ChordID) => {
 		return $q( (resolve, reject) => {
-			$http.delete(`${FBCreds.databaseURL}/userChords/.json`)
+			$http.delete(`${FBCreds.databaseURL}/userChords/${ChordID}.json`)
 			.then( (response) => {
 				resolve(response);
 			})
