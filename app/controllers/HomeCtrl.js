@@ -29,52 +29,53 @@ app.controller('HomeCtrl', function($scope, $log, $document, $uibModal, $routePa
     console.log("value", value);
     FretboardFactory.fretboard();
     $scope.selectedChord = value;
-    if ($scope.select.str1) {
+    if ($scope.checkboxes[0].selected) {
       $scope.selectedChord.string1.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.select.str2) {
+    if ($scope.checkboxes[1].selected) {
       $scope.selectedChord.string2.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.select.str3) {
+    if ($scope.checkboxes[2].selected) {
       $scope.selectedChord.string3.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.select.str4) {
+    if ($scope.checkboxes[3].selected) {
       $scope.selectedChord.string4.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.select.str5) {
+    if ($scope.checkboxes[4].selected) {
       $scope.selectedChord.string5.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
-    if ($scope.select.str6) {
+    if ($scope.checkboxes[5].selected) {
       $scope.selectedChord.string6.forEach( (note) => {
         display(note.note, note.x, note.y);
       });
     }
   };
 
-  $scope.select = {
-    str1: {selected:false},
-    str2: {selected:false},
-    str3: {selected:false},
-    str4: {selected:false},
-    str5: {selected:false},
-    str6: {selected:false}
-  };
+  $scope.checkboxes = [
+    {name: 'check[]', value:'1', label: 'String 1', selected : false},
+    {name: 'check[]', value:'2', label: 'String 2', selected : false},
+    {name: 'check[]', value:'3', label: 'String 3', selected : false},
+    {name: 'check[]', value:'4', label: 'String 4', selected : false},
+    {name: 'check[]', value:'5', label: 'String 5', selected : false},
+    {name: 'check[]', value:'6', label: 'String 6', selected : false}
+    ];
 
-  $scope.selectAll = function (){
-    Object.keys($scope.select).forEach( (val) => {
-      $scope.select[val].selected = true;
-    });
-  };
+    $scope.toggleSelect = function (event) {
+      angular.forEach($scope.checkboxes, function(item) {
+        item.selected = event.target.checked;
+      });
+    };
+
 
 ////////// SAVE CHORD TO USER PROFILE ///////////
   let user = AuthFactory.getUser();

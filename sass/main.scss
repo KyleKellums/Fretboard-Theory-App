@@ -42,35 +42,55 @@ $quaternary: #0B0A07;
 	color: $primary;
 	background-color: $secondary;
 	background-image: none;
-	outline: 0;
-	-webkit-box-shadow: none;
-			box-shadow: none;
+	// outline: 0;
+	// -webkit-box-shadow: none;
+	// 		box-shadow: none;
 }
 
+// this is the select Key and Type button
 #selectBtn {
-	margin: 10px;
+	margin-top: 30px;
 }
 
-.btn:hover {
+#selectBtn button:hover {
+	font-size: 1.075em;
 	color: grey;
 	background: $tertiary;
-	border-color: white;
+	// border-color: white;
 }
+
+#saveBtn {
+	margin-left: -3%;
+	margin-top: 8px;
+	padding-right: 0;
+}
+
+#saveBtn button {
+	font-size: 1.035em;
+	margin-left: 0;
+}
+
 
 .btn:visited {
 	color: $primary;
 	border-color: $quaternary;
 }
 
+.btn-space {
+    margin-right: 2%;
+}
+
 /******* STRING SELECTORS ********/
 #stringSelect {
 	color: $primary;
+	margin-top: 15px;
 	// clear: none;
 }
 
 #stringSelect h4 {
 	color: #4F4F4F;
 	text-align: center;
+	padding-right: 11.7%;
 }
 
 #stringSelect p {
@@ -78,9 +98,16 @@ $quaternary: #0B0A07;
 }
 
 #selectAll {
+	font-size: 1.1em;
 	color: #4F4F4F;
-	padding-right: 35%;
+	padding-right: 33.2%;
 	cursor: pointer;
+	margin-bottom: 8px;
+	margin-top: 2%;
+}
+
+#checkboxes {
+	padding-right: none;
 }
 
 
@@ -94,22 +121,38 @@ $quaternary: #0B0A07;
 	// justify-content: flex-start;
 }
 
+// #chord-btn-div button:hover {
+// 	background-color: $tertiary;
+// }
+
+// .btn-group>.btn:first-child:hover {
+// 	color: grey;
+// 	background: $tertiary;
+// }
+
 ul li {
 	list-style-type: none;
 }
 
+
 #nameAndSpelling {
 	margin-top: 10px;
-	margin-left: none;
+	margin-left: -8%;
 }
 
 #nameAndSpelling li {
+	font-size: 1.075em;
 	border-style: none;
 	padding: 10px;
 	color: $primary;
 	background-color: none;
 }
 
+//  PROFILE.HTML - SAVED CHORDS
+
+#savedChords {
+	border-radius: 5%;
+}
 
 
 
