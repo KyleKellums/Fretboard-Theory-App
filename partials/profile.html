@@ -1,22 +1,8 @@
-
-
 <div class="container">
   <h3>My Saved Chords</h3>
-  <div class="btn-group" ng-repeat="item in userList">
-    <button type="button" class="btn btn-primary" ng-model="radioModel" ng-click="">{{item.name}}</button>
+  <div id="savedChords" class="btn-group" ng-repeat="item in userList">
+    <button type="button" class="btn btn-primary btn-space" ng-model="radioModel" ng-click="">{{item.name}}</button>
     <button type="button" class="btn" ng-click="delChord(item.ChordID)">Delete Chord</button>
   </div>
 </div>
 
-
-<!-- <div>
-	<div class="container">
-  		
-	</div>
-</div> -->
-
-
-<!-- <div class="footer">
-	<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-	<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-</div> -->
